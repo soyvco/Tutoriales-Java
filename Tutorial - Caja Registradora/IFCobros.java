@@ -7,10 +7,10 @@ import net.miginfocom.swing.MigLayout;
 public class IFCobros extends JInternalFrame
 {
    private DefaultTableModel mdl;
-   String[]          columnas ={"Código","Nombre","Precios"};
-   Object[][]        datos    ={{"0001","Fabuloso",new Integer(20)},{"0002","Cloralex",new Integer(10)},{"0003","Pino",new Integer(40)}};
-   private JTable      table;
-   JScrollPane       scrollpane;
+   private String[]          columnas ={"Código","Nombre","Precios"};
+   private Object[][]        datos    ={{"0001","Fabuloso",new Integer(20)},{"0002","Cloralex",new Integer(10)},{"0003","Pino",new Integer(40)}};
+   private JTable            table;
+   private JScrollPane       scrollpane;
    
    public IFCobros()
    {
