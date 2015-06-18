@@ -17,7 +17,8 @@ public class GUICajaRegistradora extends JFrame implements ActionListener
    private JMenu        menuCaja;
    private JMenuItem    itemCaja;
    private JDesktopPane pEscritorio;
-   InternalInicioSesion ifIS =new InternalInicioSesion();
+   IFInicioSesion ifIS    =new IFInicioSesion();
+   IFCobros        ifCobro =new IFCobros();
    
    public GUICajaRegistradora()
    {
@@ -49,17 +50,29 @@ public class GUICajaRegistradora extends JFrame implements ActionListener
       if(pE.getSource().equals(itemCaja))
       {
          /* Ajustes para centrar el internalFrame */
-         int x=(pEscritorio.getWidth()/2)-(ifIS.getWidth()/2);
-         int y=(pEscritorio.getHeight()/2)-(ifIS.getHeight()/2);
-         if(ifIS.isShowing())
+         // int x=(pEscritorio.getWidth()/2)-(ifIS.getWidth()/2);
+         // int y=(pEscritorio.getHeight()/2)-(ifIS.getHeight()/2);
+         // if(ifIS.isShowing())
+         // {
+         // ifIS.setLocation(x,y);
+         // }
+         // else
+         // {
+         // pEscritorio.add(ifIS);
+         // ifIS.setLocation(x,y);
+         // ifIS.show();
+         // }
+         int x=(pEscritorio.getWidth()/2)-(ifCobro.getWidth()/2);
+         int y=(pEscritorio.getHeight()/2)-(ifCobro.getHeight()/2);
+         if(ifCobro.isShowing())
          {
-            ifIS.setLocation(x,y);
+            ifCobro.setLocation(x,y);
          }
          else
          {
-            pEscritorio.add(ifIS);
-            ifIS.setLocation(x,y);
-            ifIS.show();
+            pEscritorio.add(ifCobro);
+            ifCobro.setLocation(x,y);
+            ifCobro.show();
          }
       }
    }
