@@ -1,9 +1,9 @@
 
-public class MCajaRegistradora
+public class MTienda
 {
    public static void main(String[] args)
    {
-      GUICajaRegistradora cr=new GUICajaRegistradora();
+      GUIPrincipal cr=new GUIPrincipal();
       cr.setVisible(true);
       cr.repaint();
       cr.doLayout();
