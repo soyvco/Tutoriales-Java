@@ -1,26 +1,25 @@
+package tienda;
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import java.awt.Color;
 
 public class GUIPrincipal extends JFrame implements ActionListener
 {
-   private JPanel       contenedor;
-   private JDesktopPane pEscritorio;
-   private JMenu[]      menus        =new JMenu[2];
-   private String[]     nomMenus     ={"Cobro","Productos"};
-   private JMenuItem[]  items        =new JMenuItem[2];
-   private String[]     nomItemMenus ={"Cajero","Agregar"};
-   private JMenuBar     barraMenus;
-   IFInicioSesion       ifIS         =new IFInicioSesion();
-   IFProductos          ifProductos  =new IFProductos();
+   private JPanel      contenedor;
+   private Escritorio  pEscr;
+   private JMenu[]     menus        =new JMenu[2];
+   private String[]    nomMenus     ={"Cobro","Productos"};
+   private JMenuItem[] items        =new JMenuItem[2];
+   private String[]    nomItemMenus ={"Cajero","Agregar"};
+   private JMenuBar    barraMenus;
+   IFInicioSesion      ifIS         =new IFInicioSesion();
+   IFProductos         ifProductos  =new IFProductos();
    
    public GUIPrincipal()
    {
@@ -44,10 +43,8 @@ public class GUIPrincipal extends JFrame implements ActionListener
          menus[i].add(items[i]);
       }
       /* DesktopPane para el JInternalFrame */
-      pEscritorio=new JDesktopPane();
-      pEscritorio.setBackground(Color.DARK_GRAY);
-      pEscritorio.setOpaque(true);
-      contenedor.add(pEscritorio,BorderLayout.CENTER);
+      pEscr=new Escritorio();
+      contenedor.add(pEscr,BorderLayout.CENTER);
    }
    
    public void actionPerformed(ActionEvent pE)
@@ -55,30 +52,30 @@ public class GUIPrincipal extends JFrame implements ActionListener
       if(pE.getSource().equals(items[0]))
       {
          /* Ajustes para centrar el internalFrame */
-         int x=(pEscritorio.getWidth()/2)-(ifIS.getWidth()/2);
-         int y=(pEscritorio.getHeight()/2)-(ifIS.getHeight()/2);
+         int x=(pEscr.getWidth()/2)-(ifIS.getWidth()/2);
+         int y=(pEscr.getHeight()/2)-(ifIS.getHeight()/2);
          if(ifIS.isShowing())
          {
             ifIS.setLocation(x,y);
          }
          else
          {
-            pEscritorio.add(ifIS);
+            pEscr.add(ifIS);
             ifIS.setLocation(x,y);
             ifIS.show();
          }
       }
       else if(pE.getSource().equals(items[1]))
       {
-         int x=(pEscritorio.getWidth()/2)-(ifProductos.getWidth()/2);
-         int y=(pEscritorio.getHeight()/2)-(ifProductos.getHeight()/2);
+         int x=(pEscr.getWidth()/2)-(ifProductos.getWidth()/2);
+         int y=(pEscr.getHeight()/2)-(ifProductos.getHeight()/2);
          if(ifProductos.isShowing())
          {
             ifProductos.setLocation(x,y);
          }
          else
          {
-            pEscritorio.add(ifProductos);
+            pEscr.add(ifProductos);
             ifProductos.setLocation(x,y);
             ifProductos.show();
          }
