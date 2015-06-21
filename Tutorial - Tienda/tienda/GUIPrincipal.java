@@ -3,6 +3,7 @@ import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -13,10 +14,12 @@ public class GUIPrincipal extends JFrame implements ActionListener
 {
    private JPanel      contenedor;
    private Escritorio  pEscr;
-   private JMenu[]     menus        =new JMenu[2];
-   private String[]    nomMenus     ={"Cobro","Productos"};
-   private JMenuItem[] items        =new JMenuItem[2];
-   private String[]    nomItemMenus ={"Cajero","Agregar"};
+   private JMenu[]     menus        =new JMenu[3];
+   private String[]    nomMenus     ={"Caja","Productos","Usuarios"};
+   private String[]    iconosMenus  ={"/tienda/icons/calculator.png","/tienda/icons/carton.png","/tienda/icons/profile.png"};
+   private JMenuItem[] items        =new JMenuItem[3];
+   private String[]    nomItemMenus ={"Cobrar","Administrar","Administrar"};
+   private String[]    iconosItems  ={"/tienda/icons/money.png","/tienda/icons/basket.png","/tienda/icons/profile-group.png"};
    private JMenuBar    barraMenus;
    IFInicioSesion      ifIS         =new IFInicioSesion();
    IFProductos         ifProductos  =new IFProductos();
@@ -24,7 +27,7 @@ public class GUIPrincipal extends JFrame implements ActionListener
    public GUIPrincipal()
    {
       /* Configuración de la ventana */
-      setIconImage(Toolkit.getDefaultToolkit().getImage(GUIPrincipal.class.getResource("/tienda/icons/terminal.png")));
+      setIconImage(Toolkit.getDefaultToolkit().getImage(GUIPrincipal.class.getResource("/tienda/icons/shop.png")));
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setTitle("CAJA REGISTRADORA");
       setSize(800,600);
@@ -37,9 +40,11 @@ public class GUIPrincipal extends JFrame implements ActionListener
       for(int i=0; i<menus.length; i++)
       {
          menus[i]=new JMenu(nomMenus[i]);
+         menus[i].setIcon(new ImageIcon(GUIPrincipal.class.getResource(iconosMenus[i])));
          barraMenus.add(menus[i]);
          items[i]=new JMenuItem(nomItemMenus[i]);
          items[i].addActionListener(this);
+         items[i].setIcon(new ImageIcon(GUIPrincipal.class.getResource(iconosItems[i])));
          menus[i].add(items[i]);
       }
       /* DesktopPane para el JInternalFrame */
@@ -49,6 +54,9 @@ public class GUIPrincipal extends JFrame implements ActionListener
    
    public void actionPerformed(ActionEvent pE)
    {
+      pEscr.removeAll();
+      pEscr.repaint();
+      pEscr.doLayout();
       if(pE.getSource().equals(items[0]))
       {
          /* Ajustes para centrar el internalFrame */
