@@ -6,7 +6,7 @@ import javax.swing.JDesktopPane;
 
 public class Escritorio extends JDesktopPane
 {
-   private static Image IMG =new ImageIcon(Escritorio.class.getResource("/icons/fondoEscritorio.jpg")).getImage();
+   private static Image IMG =new ImageIcon(Escritorio.class.getResource("/tienda/icons/fondoEscritorio.jpg")).getImage();
    
    public void paintChildren(Graphics g)
    {

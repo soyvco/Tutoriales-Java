@@ -61,7 +61,7 @@ public class IFProductos extends JInternalFrame implements ActionListener
       scrollpane=new JScrollPane();
       scrollpane.setViewportView(table);
       getContentPane().add(scrollpane,"cell 1 9 5 3,grow");
-      JLabel lblImagen=new JLabel(new ImageIcon(IFInicioSesion.class.getResource("/icons/shop.png")));
+      JLabel lblImagen=new JLabel(new ImageIcon(IFInicioSesion.class.getResource("/tienda/icons/shop.png")));
       getContentPane().add(lblImagen,"cell 5 1 1 6,grow");
    }
    

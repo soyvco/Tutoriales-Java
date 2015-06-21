@@ -24,7 +24,7 @@ public class GUIPrincipal extends JFrame implements ActionListener
    public GUIPrincipal()
    {
       /* Configuración de la ventana */
-      setIconImage(Toolkit.getDefaultToolkit().getImage(GUIPrincipal.class.getResource("/icons/terminal.png")));
+      setIconImage(Toolkit.getDefaultToolkit().getImage(GUIPrincipal.class.getResource("/tienda/icons/terminal.png")));
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setTitle("CAJA REGISTRADORA");
       setSize(800,600);

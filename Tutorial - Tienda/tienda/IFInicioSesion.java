@@ -59,7 +59,7 @@ public class IFInicioSesion extends JInternalFrame implements ActionListener,Key
          bAcciones[i].addActionListener(this);
          getContentPane().add(bAcciones[i],ubicacionBotones[i]);
       }
-      JLabel label=new JLabel(new ImageIcon(IFInicioSesion.class.getResource("/icons/user-male.png")));
+      JLabel label=new JLabel(new ImageIcon(IFInicioSesion.class.getResource("/tienda/icons/user-male.png")));
       getContentPane().add(label,"cell 4 1");
    }
    
