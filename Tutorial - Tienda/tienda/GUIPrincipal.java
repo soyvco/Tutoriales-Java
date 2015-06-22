@@ -19,10 +19,11 @@ public class GUIPrincipal extends JFrame implements ActionListener
    private String[]    iconosMenus  ={"/tienda/icons/calculator.png","/tienda/icons/carton.png","/tienda/icons/profile.png"};
    private JMenuItem[] items        =new JMenuItem[3];
    private String[]    nomItemMenus ={"Cobrar","Administrar","Administrar"};
-   private String[]    iconosItems  ={"/tienda/icons/money.png","/tienda/icons/basket.png","/tienda/icons/profile-group.png"};
+   private String[]    iconosItems  ={"/tienda/icons/money.png","/tienda/icons/box-in.png","/tienda/icons/profile-group.png"};
    private JMenuBar    barraMenus;
-   IFInicioSesion      ifIS         =new IFInicioSesion();
-   IFProductos         ifProductos  =new IFProductos();
+   static IFProductos  ifPr         =new IFProductos();
+   static IFCobros     ifCo         =new IFCobros();
+   static IFUsuarios   ifUs         =new IFUsuarios();
    
    public GUIPrincipal()
    {
@@ -60,32 +61,47 @@ public class GUIPrincipal extends JFrame implements ActionListener
       if(pE.getSource().equals(items[0]))
       {
          /* Ajustes para centrar el internalFrame */
-         int x=(pEscr.getWidth()/2)-(ifIS.getWidth()/2);
-         int y=(pEscr.getHeight()/2)-(ifIS.getHeight()/2);
-         if(ifIS.isShowing())
+         int x=(pEscr.getWidth()/2)-(ifCo.getWidth()/2);
+         int y=(pEscr.getHeight()/2)-(ifCo.getHeight()/2);
+         if(ifCo.isShowing())
          {
-            ifIS.setLocation(x,y);
+            ifCo.setLocation(x,y);
          }
          else
          {
-            pEscr.add(ifIS);
-            ifIS.setLocation(x,y);
-            ifIS.show();
+            pEscr.add(ifCo);
+            ifCo.setLocation(x,y);
+            ifCo.show();
          }
       }
       else if(pE.getSource().equals(items[1]))
       {
-         int x=(pEscr.getWidth()/2)-(ifProductos.getWidth()/2);
-         int y=(pEscr.getHeight()/2)-(ifProductos.getHeight()/2);
-         if(ifProductos.isShowing())
+         int x=(pEscr.getWidth()/2)-(ifPr.getWidth()/2);
+         int y=(pEscr.getHeight()/2)-(ifPr.getHeight()/2);
+         if(ifPr.isShowing())
          {
-            ifProductos.setLocation(x,y);
+            ifPr.setLocation(x,y);
          }
          else
          {
-            pEscr.add(ifProductos);
-            ifProductos.setLocation(x,y);
-            ifProductos.show();
+            pEscr.add(ifPr);
+            ifPr.setLocation(x,y);
+            ifPr.show();
+         }
+      }
+      else if(pE.getSource().equals(items[2]))
+      {
+         int x=(pEscr.getWidth()/2)-(ifUs.getWidth()/2);
+         int y=(pEscr.getHeight()/2)-(ifUs.getHeight()/2);
+         if(ifUs.isShowing())
+         {
+            ifUs.setLocation(x,y);
+         }
+         else
+         {
+            pEscr.add(ifUs);
+            ifUs.setLocation(x,y);
+            ifUs.show();
          }
       }
    }
